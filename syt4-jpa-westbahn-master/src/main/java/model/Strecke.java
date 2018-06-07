@@ -1,3 +1,4 @@
+package model;
 public class Strecke {
 
 	private Long ID;

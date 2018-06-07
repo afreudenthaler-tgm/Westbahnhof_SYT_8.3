@@ -1,3 +1,4 @@
+package model;
 import java.util.Date;
 
 public class Sonderangebot {
@@ -10,7 +11,7 @@ public class Sonderangebot {
 
 	private int dauer = 12;
 
-	private float preisNachlass = 0,5;
+	private float preisNachlass = 0.5f;
 
 	private Ticket tickets;
 

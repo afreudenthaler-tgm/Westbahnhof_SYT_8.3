@@ -1,3 +1,4 @@
+package model;
 public abstract class Ticket {
 
 	protected Long ID;
