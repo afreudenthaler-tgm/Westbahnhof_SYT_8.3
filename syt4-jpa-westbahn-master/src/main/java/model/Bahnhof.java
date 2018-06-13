@@ -39,7 +39,10 @@ public class Bahnhof {
 		this.absZeitEntfernung = absZeitEntfernung;
 		this.kopfBahnhof = kopfBahnhof;
 	}
-	
+
+	public Bahnhof() {
+	}
+
 	public Long getID() {
 		return ID;
 	}

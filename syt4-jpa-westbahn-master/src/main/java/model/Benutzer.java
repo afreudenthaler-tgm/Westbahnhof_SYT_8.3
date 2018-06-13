@@ -1,9 +1,7 @@
 package model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import javax.validation.constraints.Email;
 
 @Entity
 public class Benutzer {
@@ -14,7 +12,7 @@ public class Benutzer {
 	private String vorName;
 
 	private String nachName;
-
+	@Email
 	private String eMail;
 
 	private String passwort;
@@ -22,9 +20,10 @@ public class Benutzer {
 	private String smsNummer;
 
 	private Long verbuchtePraemienMeilen;
-
+	@OneToOne
 	private Ticket tickets;
 
+	@OneToOne
 	private Reservierung[] reservierungen;
 
 	public Benutzer(Long ID, String vorName, String nachName, String eMail, String passwort, String smsNummer, Long verbuchtePraemienMeilen, Ticket tickets, Reservierung[] reservierungen) {
@@ -37,6 +36,9 @@ public class Benutzer {
 		this.verbuchtePraemienMeilen = verbuchtePraemienMeilen;
 		this.tickets = tickets;
 		this.reservierungen = reservierungen;
+	}
+
+	public Benutzer() {
 	}
 
 	public Long getID() {
