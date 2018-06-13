@@ -7,4 +7,7 @@ public class Zeitkarte extends Ticket {
 
 	private ZeitkartenTyp typ;
 
+	public Zeitkarte(Strecke strecke, Zahlung zahlung) {
+		super(strecke, zahlung);
+	}
 }
