@@ -19,7 +19,13 @@ public class Sonderangebot {
 	@OneToOne
 	private Ticket tickets;
 
-
+	public Sonderangebot(int kontingent, Date startZeit, int dauer, float preisNachlass, Ticket tickets) {
+		this.kontingent = kontingent;
+		this.startZeit = startZeit;
+		this.dauer = dauer;
+		this.preisNachlass = preisNachlass;
+		this.tickets = tickets;
+	}
 
 	public Long getID() {
 		return ID;

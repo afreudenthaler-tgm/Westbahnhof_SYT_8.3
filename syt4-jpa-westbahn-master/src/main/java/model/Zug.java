@@ -16,9 +16,9 @@ public class Zug {
 	private int fahrradStellplaetze = 50;
 
 	private int rollStuhlPlaetze = 10;
-	@OneToOne
+	@ManyToOne
 	private Bahnhof start;
-	@OneToOne
+	@ManyToOne
 	private Bahnhof ende;
 
 	public Long getID() {
