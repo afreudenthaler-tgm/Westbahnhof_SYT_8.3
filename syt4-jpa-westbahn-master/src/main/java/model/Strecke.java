@@ -32,6 +32,9 @@ public class Strecke {
 		this.ende = ende;
 	}
 
+	public Strecke() {
+	}
+
 	public Long getID() {
 		return ID;
 	}
