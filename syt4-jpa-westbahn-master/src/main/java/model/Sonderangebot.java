@@ -20,7 +20,7 @@ public class Sonderangebot {
 	private Ticket tickets;
 
 
-	
+
 	public Long getID() {
 		return ID;
 	}

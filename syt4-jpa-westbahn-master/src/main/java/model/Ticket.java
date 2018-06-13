@@ -1,9 +1,7 @@
 package model;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public abstract class Ticket {
@@ -12,12 +10,17 @@ public abstract class Ticket {
 	@GeneratedValue
 	protected Long ID;
 
+	@OneToOne
 	protected Strecke strecke;
 
+	@Transient
 	protected Zahlung zahlung;
 
 	public Ticket(Strecke strecke, Zahlung zahlung) {
 		this.strecke = strecke;
 		this.zahlung = zahlung;
+	}
+
+	protected Ticket() {
 	}
 }
