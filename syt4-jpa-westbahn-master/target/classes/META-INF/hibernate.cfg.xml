@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8'?>  
+<!DOCTYPE hibernate-configuration PUBLIC  
+		  "-//Hibernate/Hibernate Configuration DTD 3.0//EN"  
+		  "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">  
+
+<hibernate-configuration>  
+  
+	<session-factory>  
+		<property name="hbm2ddl.auto">create</property>  
+		<property name="dialect">org.hibernate.dialect.MySQLDialect</property>  
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="connection.url">jdbc:mysql://localhost:3306/westbahn?useSSL=false</property>  
+		<property name="connection.username">afreudenthaler</property>
+		<property name="connection.password">Abc</property>
+		
+		<mapping class="model.Strecke" />
+		<mapping class="model.Bahnhof" />
+		<mapping class="model.Einzelticket" />
+		
+		<mapping class="model.Kreditkarte" />
+		<mapping class="model.Maestro" />
+		<mapping class="model.Praemienmeilen" />
+		<mapping class="model.Sonderangebot" />
+		
+		<mapping class="model.Ticket" />
+		
+		<mapping class="model.StatusInfo" />
+		<mapping class="model.TicketOption" />
+		<mapping class="model.Zeitkarte" />
+		<mapping class="model.ZeitkartenTyp" />
+		<mapping class="model.Zug" />
+		
+		
+		<mapping resource="META-INF/reservierung.xmlerung.xml"/>
+		<mapping class="model.Benutzer" />
+		
+	</session-factory>
+  
+</hibernate-configuration>  

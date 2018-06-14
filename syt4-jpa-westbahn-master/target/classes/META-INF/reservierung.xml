@@ -4,9 +4,9 @@
 		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-	<class name="model.Reservierung">
+	<class name="model.Reservierung" table ="reservierung">
 		<id name="ID" access="field">
-			<generator class="increment"></generator>
+			<generator class="identity"></generator>
 		</id>
 		<property name="datum" type="java.util.Date" access="field" />
 		<property name="praemienMeilenBonus" type="int" access="field" />
