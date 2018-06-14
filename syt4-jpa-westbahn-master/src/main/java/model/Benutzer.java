@@ -27,8 +27,7 @@ public class Benutzer {
 /*	@ManyToMany
 	private Set<Reservierung> reservierungen;
 */
-	public Benutzer(Long ID, String vorName, String nachName, String eMail, String passwort, String smsNummer, Long verbuchtePraemienMeilen, Ticket tickets, Reservierung[] reservierungen) {
-		this.ID = ID;
+	public Benutzer(String vorName, String nachName, String eMail, String passwort, String smsNummer, Long verbuchtePraemienMeilen, Ticket tickets, Reservierung[] reservierungen) {
 		this.vorName = vorName;
 		this.nachName = nachName;
 		this.eMail = eMail;

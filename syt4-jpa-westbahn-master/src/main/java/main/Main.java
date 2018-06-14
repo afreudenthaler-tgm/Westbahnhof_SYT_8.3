@@ -70,6 +70,8 @@ public class Main {
 	public static void fillDB(EntityManager em) throws ParseException {
 		em.getTransaction().begin();
 		List<Bahnhof> list = new ArrayList<Bahnhof>();
+		List<Benutzer> user = new ArrayList<Benutzer>();
+		user.add(new Benutzer());
 		list.add(new Bahnhof("WienHbf", 0, 0, 0, true));
 		list.add(new Bahnhof("SalzburgHbf", 20, 60, 120, true));
 		list.add(new Bahnhof("Amstetten", 40, 124, 169, false));
