@@ -11,14 +11,14 @@ public class Strecke {
 	private Long ID;
 
 	@NotNull
-	@OneToOne
+	@ManyToOne
 	private Bahnhof start;
 
-	@OneToOne
+	@ManyToOne
 	private Bahnhof bahnhof;
 
 	@NotNull
-	@OneToOne
+	@ManyToOne
 	private Bahnhof ende;
 
 	public Strecke(Bahnhof start, Bahnhof ende) {

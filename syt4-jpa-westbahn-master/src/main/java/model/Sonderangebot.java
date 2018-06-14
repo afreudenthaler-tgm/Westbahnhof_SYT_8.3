@@ -27,6 +27,9 @@ public class Sonderangebot {
 		this.tickets = tickets;
 	}
 
+	public Sonderangebot() {
+	}
+
 	public Long getID() {
 		return ID;
 	}

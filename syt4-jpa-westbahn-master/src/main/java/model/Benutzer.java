@@ -2,6 +2,7 @@ package model;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
+import java.util.Set;
 
 @Entity
 public class Benutzer {
@@ -23,9 +24,9 @@ public class Benutzer {
 	@OneToOne
 	private Ticket tickets;
 
-	@OneToOne
-	private Reservierung[] reservierungen;
-
+/*	@ManyToMany
+	private Set<Reservierung> reservierungen;
+*/
 	public Benutzer(Long ID, String vorName, String nachName, String eMail, String passwort, String smsNummer, Long verbuchtePraemienMeilen, Ticket tickets, Reservierung[] reservierungen) {
 		this.ID = ID;
 		this.vorName = vorName;
@@ -35,7 +36,7 @@ public class Benutzer {
 		this.smsNummer = smsNummer;
 		this.verbuchtePraemienMeilen = verbuchtePraemienMeilen;
 		this.tickets = tickets;
-		this.reservierungen = reservierungen;
+	//	this.reservierungen = reservierungen;
 	}
 
 	public Benutzer() {
@@ -104,12 +105,12 @@ public class Benutzer {
 	public void setTickets(Ticket tickets) {
 		this.tickets = tickets;
 	}
-
+/*
 	public Reservierung[] getReservierungen() {
 		return reservierungen;
 	}
 
 	public void setReservierungen(Reservierung[] reservierungen) {
 		this.reservierungen = reservierungen;
-	}
+	} */
 }

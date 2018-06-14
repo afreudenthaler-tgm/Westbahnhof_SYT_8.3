@@ -1,6 +1,9 @@
 package model;
-public class Preisstaffelung {
 
+import javax.persistence.Id;
+
+public class Preisstaffelung {
+	@Id
 	private static Long serialVersionUID;
 
 	private float grossGepaeck = 1.02f;

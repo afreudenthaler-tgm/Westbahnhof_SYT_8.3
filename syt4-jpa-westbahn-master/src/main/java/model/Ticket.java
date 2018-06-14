@@ -10,7 +10,7 @@ public abstract class Ticket {
 	@GeneratedValue
 	protected Long ID;
 
-	@OneToOne
+	@ManyToOne
 	protected Strecke strecke;
 
 	@Transient

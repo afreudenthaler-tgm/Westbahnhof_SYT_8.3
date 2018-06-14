@@ -29,7 +29,7 @@ public class Main {
 	private static EntityManagerFactory sessionFactory;
 	@PersistenceContext
 	private static EntityManager entitymanager;
-	
+
 	static SimpleDateFormat dateForm = new SimpleDateFormat("dd.MM.yyyy");
 	static SimpleDateFormat timeForm = new SimpleDateFormat("dd.MM.yyyy mm:hh");
 
@@ -38,9 +38,9 @@ public class Main {
 	}
 
 	public static void main(String[] args) {
-		
+
 		BasicConfigurator.configure();
-		
+
 		try {
 			log.info("Starting \"Mapping Perstistent Classes and Associations\" (task1)");
 			sessionFactory = Persistence.createEntityManagerFactory("westbahn");
