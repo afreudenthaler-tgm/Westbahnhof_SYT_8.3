@@ -4,7 +4,23 @@ import javax.persistence.*;
 import javax.validation.constraints.Email;
 import java.util.Set;
 
-
+@NamedNativeQueries({
+		@NamedNativeQuery(
+				name = "getAllReservationsForEMail",
+				query = "select * from reservierung left outer join benutzer on reservierung.benutzer = benutzer.ID "
+						+ "where benutzer.eMail = :eMail"
+		),
+		@NamedNativeQuery(
+				name = "getAllUsersWithMonthTicket",
+				query = "SELECT b FROM Benutzer b LEFT JOIN b.tickets t WHERE t.typ=1"
+		),
+		@NamedNativeQuery(
+				name = "getAllTicketsWithoutReservation",
+				query = "SELECT t FROM Ticket t " +
+						"LEFT JOIN Reservierung r ON r.strecke.ID=t.strecke.ID " +
+						"WHERE t.strecke.ID=:streckeID"
+				)
+})
 
 @Entity
 public class Benutzer {

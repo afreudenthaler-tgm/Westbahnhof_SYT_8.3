@@ -7,7 +7,7 @@ import java.util.Date;
 
 public class Reservierung {
 
-	
+
 
 	private Long ID;
 

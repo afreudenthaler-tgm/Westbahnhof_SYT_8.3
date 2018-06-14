@@ -122,7 +122,7 @@ public class Main {
 
 		em.persist(wochenkarte);
 		em.persist(armin);
-		em.persist(r);
+		//em.persist(r);
 		em.flush();
 		em.getTransaction().commit();
 	}
