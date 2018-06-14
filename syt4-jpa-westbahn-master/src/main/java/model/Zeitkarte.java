@@ -10,6 +10,15 @@ public class Zeitkarte extends Ticket {
 	private ZeitkartenTyp typ;
 
 
+
+	public Zeitkarte() {}
+
+	public Zeitkarte(ZeitkartenTyp typ, Date gueltigAb, Strecke strecke, Zahlung zahlung) {
+		super(strecke,zahlung);
+		this.typ = typ;
+		this.gueltigAb = gueltigAb;
+	}
+
 	public Date getGueltigAb() {
 		return gueltigAb;
 	}

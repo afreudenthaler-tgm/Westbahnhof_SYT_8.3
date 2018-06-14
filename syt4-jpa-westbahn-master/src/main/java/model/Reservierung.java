@@ -26,8 +26,7 @@ public class Reservierung {
 
 	private Zahlung zahlung;
 
-	public Reservierung(Long ID, Date datum, int praemienMeilenBonus, int preis, StatusInfo status, Zug zug, Strecke strecke, Benutzer benutzer, Zahlung zahlung) {
-		this.ID = ID;
+	public Reservierung(Date datum, int praemienMeilenBonus, int preis, StatusInfo status, Zug zug, Strecke strecke, Benutzer benutzer, Zahlung zahlung) {
 		this.datum = datum;
 		this.praemienMeilenBonus = praemienMeilenBonus;
 		this.preis = preis;

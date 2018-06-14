@@ -4,6 +4,8 @@ import javax.persistence.*;
 import javax.validation.constraints.Email;
 import java.util.Set;
 
+
+
 @Entity
 public class Benutzer {
 	@Id
@@ -27,7 +29,7 @@ public class Benutzer {
 /*	@ManyToMany
 	private Set<Reservierung> reservierungen;
 */
-	public Benutzer(String vorName, String nachName, String eMail, String passwort, String smsNummer, Long verbuchtePraemienMeilen, Ticket tickets, Reservierung[] reservierungen) {
+	public Benutzer(String vorName, String nachName, String eMail, String passwort, String smsNummer, Long verbuchtePraemienMeilen, Ticket tickets/*, Reservierung[] reservierungen*/) {
 		this.vorName = vorName;
 		this.nachName = nachName;
 		this.eMail = eMail;

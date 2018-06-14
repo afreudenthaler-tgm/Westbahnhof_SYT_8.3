@@ -21,6 +21,18 @@ public class Zug {
 	@ManyToOne
 	private Bahnhof ende;
 
+	public Zug(Date startZeit, int sitzPlaetze, int fahrradStellplaetze, int rollStuhlPlaetze, Bahnhof start, Bahnhof ende) {
+		this.startZeit = startZeit;
+		this.sitzPlaetze = sitzPlaetze;
+		this.fahrradStellplaetze = fahrradStellplaetze;
+		this.rollStuhlPlaetze = rollStuhlPlaetze;
+		this.start = start;
+		this.ende = ende;
+	}
+
+	public Zug() {
+	}
+
 	public Long getID() {
 		return ID;
 	}

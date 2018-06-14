@@ -10,14 +10,14 @@ public class Strecke {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long ID;
 
-	@NotNull
+
 	@ManyToOne
 	private Bahnhof start;
 
 	@ManyToOne
 	private Bahnhof bahnhof;
 
-	@NotNull
+
 	@ManyToOne
 	private Bahnhof ende;
 

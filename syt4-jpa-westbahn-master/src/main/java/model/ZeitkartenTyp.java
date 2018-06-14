@@ -1,12 +1,12 @@
 package model;
 public enum ZeitkartenTyp {
 
-	;
 
-	public int WOCHENKARTE;
 
-	public int MONATSKARTE;
+	WOCHENKARTE,
 
-	public int JAHRESKARTE;
+	 MONATSKARTE,
+
+	 JAHRESKARTE;
 
 }

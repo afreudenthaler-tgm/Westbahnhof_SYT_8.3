@@ -20,6 +20,9 @@ import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.apache.log4j.BasicConfigurator;
 
+import java.util.Calendar;
+import java.util.Date;
+
 import model.*;
 
 public class Main {
@@ -69,17 +72,57 @@ public class Main {
 
 	public static void fillDB(EntityManager em) throws ParseException {
 		em.getTransaction().begin();
-		List<Bahnhof> list = new ArrayList<Bahnhof>();
-		List<Benutzer> user = new ArrayList<Benutzer>();
-		user.add(new Benutzer());
-		list.add(new Bahnhof("WienHbf", 0, 0, 0, true));
-		list.add(new Bahnhof("SalzburgHbf", 20, 60, 120, true));
-		list.add(new Bahnhof("Amstetten", 40, 124, 169, false));
-		list.add(new Bahnhof("Linz-Ost", 140, 320, 250, false));
-		list.add(new Bahnhof("Huetteldorf", 3, 5, 19, false));
-		list.add(new Bahnhof("Wels-Zentrum", 102, 400, 250, true));
-		for (Bahnhof b : list)
+		List<Bahnhof> bahnhoefe = new ArrayList<Bahnhof>();
+		List<Strecke> strecken = new ArrayList<Strecke>();
+		List<Zug> zuege = new ArrayList<Zug>();
+
+
+		Bahnhof wienhbf = new Bahnhof("WienHbf", 0, 0, 0, true);
+		Bahnhof shbf = new Bahnhof("SalzburgHbf", 20, 60, 120, true);
+		Bahnhof amstetten = new Bahnhof("Amstetten", 40, 124, 169, false);
+		Bahnhof linz = new Bahnhof("Linz-Ost", 140, 320, 250, false);
+		Bahnhof huetteldorf = new Bahnhof("Huetteldorf", 3, 5, 19, false);
+		Bahnhof wels = new Bahnhof("Wels-Zentrum", 102, 400, 250, true);
+		bahnhoefe.add(wienhbf);
+		bahnhoefe.add(shbf);
+		bahnhoefe.add(amstetten);
+		bahnhoefe.add(linz);
+		bahnhoefe.add(huetteldorf);
+		bahnhoefe.add(wels);
+
+
+		Strecke wien_salzburg = new Strecke(wienhbf, amstetten, shbf);
+		Strecke wien_linz = new Strecke(wienhbf, amstetten, linz);
+		strecken.add(wien_salzburg);
+		strecken.add(wien_linz);
+
+
+		Zug wiener_linien = new Zug(at_time(5, 20), 450, 20, 10, wienhbf, shbf );
+		Zug rex = new Zug(at_time(8, 8), 100, 5, 0, linz, wels );
+		zuege.add(wiener_linien);
+		zuege.add(rex);
+
+		Zahlung maestro = new Maestro();
+
+
+		Ticket wochenkarte = new Zeitkarte(ZeitkartenTyp.WOCHENKARTE, new Date(), wien_linz, maestro);
+
+		Benutzer armin = new Benutzer("Armin", "Freudenthaler", "test@mail.at", "TestPW", "147", (long) 300, wochenkarte);
+
+		Reservierung r = new Reservierung(get_tomorrow(), 10, 100, StatusInfo.ONTIME, wiener_linien, wien_linz, armin, maestro);
+
+		for (Bahnhof b : bahnhoefe)
 			em.persist(b);
+
+		for (Strecke s: strecken)
+			em.persist(s);
+
+		for (Zug z: zuege)
+			em.persist(z);
+
+		em.persist(wochenkarte);
+		em.persist(armin);
+		em.persist(r);
 		em.flush();
 		em.getTransaction().commit();
 	}
@@ -121,5 +164,22 @@ public class Main {
 			log.error(violation.getMessage());
 			System.out.println(violation.getMessage());
 		}
+	}
+
+	public static Date at_time(int hour, int min) {
+		Date d = new Date();
+		d.setHours(hour);
+		d.setMinutes(min);
+		return d;
+	}
+
+	public static Date date_plus_days(int days) {
+		Date d = new Date();
+		d.setDate(d.getDate()+days);
+		return d;
+	}
+
+	public static Date get_tomorrow() {
+		return date_plus_days(1);
 	}
 }
